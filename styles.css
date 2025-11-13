@@ -1,0 +1,128 @@
+:root{
+  --bg:#0b0f17;
+  --card:#121826;
+  --text:#e8eef9;
+  --muted:#aeb6c4;
+  --primary:#19b7ff;
+  --accent:#ff7ac6;
+  --success:#3ddc97;
+  --warning:#ffd166;
+}
+
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; background:var(--bg); color:var(--text); font-family:system-ui,Segoe UI,Roboto,Arial; }
+
+.topbar{
+  position:sticky; top:0; z-index:1000;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 20px; background:#0e1420; border-bottom:1px solid #1e2a3f;
+}
+.logo{ font-weight:700; letter-spacing:0.5px; }
+.nav a{
+  color:var(--text); text-decoration:none; margin-left:16px; padding:8px 10px; border-radius:6px;
+  transition:background .2s ease,color .2s ease;
+}
+.nav a:hover{ background:#182236; }
+.nav a.active{ background:#1b2740; color:#cfe6ff; }
+
+.hero{ max-width:1000px; margin:0 auto; padding:40px 20px; }
+.intro h1{ font-size:2rem; margin:0 0 10px; }
+.intro p{ color:var(--muted); }
+
+.buttons{ display:flex; flex-wrap:wrap; gap:12px; margin-top:20px; }
+.btn{
+  display:inline-block; padding:12px 18px; border-radius:10px;
+  text-decoration:none; color:#09111e; background:var(--primary); font-weight:600;
+  box-shadow:0 8px 20px rgba(25,183,255,.25);
+  transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.btn:hover{ transform:translateY(-2px); box-shadow:0 12px 28px rgba(25,183,255,.35); }
+
+/* Cinco animaciones distintas para los botones */
+@keyframes bounce{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-5px);} }
+.btn-bounce{ animation:bounce 1.2s infinite; }
+
+@keyframes pulse{ 0%{box-shadow:0 0 0 0 rgba(25,183,255,.6);} 70%{box-shadow:0 0 0 12px rgba(25,183,255,0);} 100%{box-shadow:0 0 0 0 rgba(25,183,255,0);} }
+.btn-pulse{ animation:pulse 1.8s infinite; }
+
+@keyframes slide{ 0%{transform:translateX(0);} 50%{transform:translateX(4px);} 100%{transform:translateX(0);} }
+.btn-slide{ animation:slide 1.6s infinite; }
+
+@keyframes tilt{ 0%{transform:rotate(0deg);} 50%{transform:rotate(2deg);} 100%{transform:rotate(0deg);} }
+.btn-tilt{ animation:tilt 1.5s infinite; }
+
+@keyframes glow{ 0%{filter:drop-shadow(0 0 0 rgba(255,122,198,.0));} 50%{filter:drop-shadow(0 0 8px rgba(255,122,198,.7));} 100%{filter:drop-shadow(0 0 0 rgba(255,122,198,.0));} }
+.btn-glow{ background:linear-gradient(90deg, var(--primary), var(--accent)); color:#0a0f15; animation:glow 2.2s infinite; }
+
+.descripcion{ max-width:1000px; margin:30px auto; padding:0 20px; }
+.cards{ list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+.cards li{ background:var(--card); border:1px solid #1f2b40; border-radius:12px; padding:14px; }
+.cards li h3{ margin:0 0 8px; }
+.cards li p{ margin:0; color:var(--muted); }
+
+.container{ max-width:1000px; margin:0 auto; padding:30px 20px; }
+.footer{ text-align:center; padding:20px; border-top:1px solid #1e2a3f; background:#0e1420; color:var(--muted); }
+
+/* Tabla de carrera */
+table{ width:100%; border-collapse:collapse; background:var(--card); border:1px solid #1f2b40; border-radius:12px; overflow:hidden; }
+thead th{ background:#162137; color:#cfe6ff; padding:12px; text-align:left; font-weight:700; }
+tbody td{ padding:12px; border-top:1px solid #1f2b40; }
+tbody tr:hover{ background:#1a2741; }
+
+/* Contacto e iconos */
+.contact .icons{ display:flex; gap:12px; flex-wrap:wrap; margin:12px 0 20px; }
+.icon{ display:inline-flex; align-items:center; gap:8px; padding:10px 12px; border-radius:10px; background:#161f30; color:#cfe6ff; text-decoration:none; transition:background .2s ease, transform .2s ease; }
+.icon:hover{ transform:translateY(-2px); }
+.icon-twitter:hover{ background:#1DA1F2; color:#081521; }
+.icon-instagram:hover{ background:#E1306C; color:#12040c; }
+.icon-facebook:hover{ background:#1877F2; color:#061022; }
+.icon-youtube:hover{ background:#FF0000; color:#1a0000; }
+
+/* Galería */
+.gallery{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+.card{ position:relative; overflow:hidden; border-radius:12px; border:1px solid #1f2b40; background:#0c1424; }
+.card img{ width:100%; height:200px; object-fit:cover; display:block; }
+.card figcaption{
+  position:absolute; inset:auto 0 0 0; background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(10,15,22,.85) 60%);
+  color:#e8eef9; padding:12px; transform:translateY(100%); transition:transform .3s ease;
+}
+.card:hover figcaption{ transform:translateY(0); }
+.hint{ color:var(--muted); }
+
+/* Distintas animaciones para cada imagen */
+@keyframes zoom{ from{transform:scale(1);} to{transform:scale(1.06);} }
+.anim-zoom img{ transition:transform .4s ease; }
+.anim-zoom:hover img{ transform:scale(1.06); }
+
+.anim-rotate img{ transition:transform .5s ease; }
+.anim-rotate:hover img{ transform:rotate(2deg) scale(1.03); }
+
+.anim-fade img{ transition:opacity .4s ease; }
+.anim-fade:hover img{ opacity:.8; }
+
+@keyframes slideLeft{ from{transform:translateX(0);} to{transform:translateX(-6px);} }
+.anim-slide-left:hover img{ transform:translateX(-6px); transition:transform .3s ease; }
+
+@keyframes slideRight{ from{transform:translateX(0);} to{transform:translateX(6px);} }
+.anim-slide-right:hover img{ transform:translateX(6px); transition:transform .3s ease; }
+
+@keyframes bounceCard{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-4px);} }
+.anim-bounce:hover img{ animation:bounceCard .6s; }
+
+.anim-tilt:hover img{ transform:rotate(-2deg); transition:transform .3s ease; }
+
+.anim-glow:hover img{ filter:brightness(1.15) drop-shadow(0 0 10px rgba(25,183,255,.4)); transition:filter .3s ease; }
+
+/* Blog: tarjetas y animación de aparición suave */
+.post{ display:grid; grid-template-columns:1fr 2fr; gap:16px; background:var(--card); border:1px solid #1f2b40; border-radius:12px; padding:16px; margin-bottom:18px; }
+.post-cover{ width:100%; height:180px; object-fit:cover; border-radius:8px; }
+.post-content h2{ margin:0 0 8px; }
+.post-content p{ color:var(--muted); }
+
+.reveal{ opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s ease; }
+.reveal.visible{ opacity:1; transform:translateY(0); }
+
+/* Responsivo */
+@media (max-width:740px){
+  .post{ grid-template-columns:1fr; }
+}
